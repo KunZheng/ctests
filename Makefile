@@ -1,7 +1,7 @@
 BIN = bin
 
 CC = gcc
-CFLAG = -g -O
+CFLAG = -g 
 
 SRC = $(wildcard *.c)
 OBJ = $(patsubst %.c, $(BIN)/%, $(SRC))
@@ -10,7 +10,7 @@ OBJ = $(patsubst %.c, $(BIN)/%, $(SRC))
 all: CHECK_DIR $(OBJ)
 
 $(OBJ):$(BIN)/%:%.c
-	$(CC) $^ -o $@
+	$(CC) $(CFLAG) $^ -o $@
 
 CHECK_DIR:
 	@mkdir -p $(BIN)
